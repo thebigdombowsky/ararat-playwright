@@ -3,7 +3,14 @@
   "version": "1.0.0",
   "description": "Automated software testing with playwright",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test:chromium": "playwright test --config=playwright.config.ts --project=chromium",
+    "test:firefox": "playwright test --config=playwright.config.ts --project=firefox",
+    "test:webkit": "playwright test --config=playwright.config.ts --project=webkit",
+    "test:e2e-chromium": "playwright test --config=e2e.config.ts --project=chromium",
+    "test:e2e-firefox": "playwright test --config=e2e.config.ts --project=firefox",
+    "test:e2e-webkit": "playwright test --config=e2e.config.ts --project=webkit"
+  },
   "author": "",
   "license": "ISC",
   "dependencies": {

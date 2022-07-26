@@ -1,6 +1,6 @@
 //example.spec.ts
 import { test, expect } from '@playwright/test';
-import { ExampleClass } from '../src/pages/example.page';
+import { ExampleClass } from '../pages/example.page';
 test('Navigate to Google', async ({ page }) => {
   await page.goto('https://google.com/');
   const url = await page.url();
