@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test'
 import { loadAraratHomePage } from '../../../helpers'
 
-test.describe.parallel('Login/Logout', () => {
+test.describe.parallel('Login + Logout', () => {
 
     test.beforeEach(async ({ page }) => {
 
