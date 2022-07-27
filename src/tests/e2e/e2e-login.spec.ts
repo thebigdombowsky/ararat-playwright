@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test'
 import { loadAraratHomePage } from '../../../helpers'
 
-test.describe.parallel('Login/Logout flow', () => {
+test.describe.parallel('Login/Logout', () => {
 
     test.beforeEach(async ({ page }) => {
 
@@ -9,7 +9,7 @@ test.describe.parallel('Login/Logout flow', () => {
         
     })
 
-    test('Negative scenario for Login', async ({ page }) => {
+    test('Incorrect username/password', async ({ page }) => {
 
         await page.locator('input[name="username"]').fill('Invalid Username')
         await page.locator('input[name="password"]').fill('password')
@@ -19,7 +19,7 @@ test.describe.parallel('Login/Logout flow', () => {
 
     })
 
-    test('Positive scenario for Login + Logout', async ({ page }) => {
+    test('Successful login/logout', async ({ page }) => {
 
         await page.locator('input[name="username"]').fill('shane')
         await page.locator('input[name="password"]').fill('password')
