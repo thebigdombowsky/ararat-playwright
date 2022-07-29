@@ -39,7 +39,7 @@ test.describe.parallel('Login + Logout', () => {
         await page.locator('input:has-text("Sign In")').click()
 
         await page.locator('#profile-menu-button').click();
-        const displayName = await page.locator('<h3>First undefined</h3>')
+        const displayName = await page.locator('text=First undefined')
         await expect(displayName).toContainText('FirstNameOnly')
 
         await page.locator('#profile-menu-button').click();
@@ -55,7 +55,7 @@ test.describe.parallel('Login + Logout', () => {
         await page.locator('input:has-text("Sign In")').click()
 
         await page.locator('#profile-menu-button').click();
-        const displayName = await page.locator('<h3>Last undefined</h3>')
+        const displayName = await page.locator('text=Last undefined')
         await expect(displayName).toContainText('LastNameOnly')
 
         await page.locator('#profile-menu-button').click();
@@ -71,7 +71,7 @@ test.describe.parallel('Login + Logout', () => {
         await page.locator('input:has-text("Sign In")').click()
 
         await page.locator('#profile-menu-button').click();
-        const displayName = await page.locator('<h3>undefined undefined</h3>')
+        const displayName = await page.locator('text=undefined undefined')
         await expect(displayName).toContainText('NoNames')
 
         await page.locator('#profile-menu-button').click();
