@@ -1,11 +1,18 @@
 import { test, expect } from '@playwright/test'
-import { loadAraratHomePage } from '../../../helpers'
+//import { loadAraratHomePage } from '../../../helpers'
+import { LoginPage } from '../../page-objects/LoginPage'
 
 test.describe.parallel('Login + Logout', () => {
 
+    let loginPage: LoginPage
+
     test.beforeEach(async ({ page }) => {
 
-    await loadAraratHomePage(page)
+        loginPage = new LoginPage(page)
+
+        await loginPage.visit()
+
+        //await loadAraratHomePage(page)
         
     })
 

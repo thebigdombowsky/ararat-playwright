@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test'
-import { AraratLoginPage } from '../pages/login.page'
+import { AraratLoginPage } from '../src/pages/login.page'
 
 //const user = 'shane'
 //const password = 'password'
