@@ -1,18 +1,20 @@
 import { test, expect } from '@playwright/test'
-//import { loadAraratHomePage } from '../../../helpers'
 import { LoginPage } from '../../page-objects/LoginPage'
+import { LandingPage } from '../../page-objects/LandingPage'
 
 //const user = 'shane'
 //const password = 'password'
 
 let loginPage: LoginPage
+let landingPage: LandingPage
 
     test.beforeEach(async ({ page }) => {
 
       loginPage = new LoginPage(page)
+      landingPage = new LandingPage(page)
 
       await loginPage.visit()
-      await loginPage.login()
+      await loginPage.login('shane', 'password')
 
     })
 
@@ -38,8 +40,6 @@ test('Create manual order', async ({ page }) => {
 
   await page.locator('text=.cls-1{fill:#26193c;} Next').nth(1).click()
 
-  await page.locator('#profile-menu-button').click();
-
-  await page.locator('text=Logout').click();
+  await landingPage.logout()
   
 })

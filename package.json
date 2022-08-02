@@ -17,6 +17,7 @@
     "prettier": "^2.7.1"
   },
   "devDependencies": {
-    "@playwright/test": "^1.23.4"
+    "@playwright/test": "^1.23.4",
+    "playwright-expect": "^0.1.2"
   }
 }

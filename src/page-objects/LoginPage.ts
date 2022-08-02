@@ -11,9 +11,9 @@ export class LoginPage {
     constructor(page:Page){
 
         this.page=page
-        this.usernameInput = page.locator('input[name="username"]')
-        this.passwordInput = page.locator('input[name="password"]')
-        this.signinButton = page.locator('input:has-text("Sign In")')
+        this.usernameInput = page.locator('#username')
+        this.passwordInput = page.locator('#password')
+        this.signinButton = page.locator('#kc-login')
         this.errorMessage = page.locator('text=Invalid username or password.')
     
     }
@@ -21,16 +21,19 @@ export class LoginPage {
 
     async visit() {
         await this.page.goto('http://pmararat-qa-shva.thedevcloud.net/')
-        await this.page.waitForSelector('input:has-text("Sign In")')
     }
 
-    async login()
+    async login(username: string, password: string)
     {
 
-    await this.page.locator('input[name="username"]').fill('shane');
-    await this.page.locator('input[name="password"]').fill('password');
-    await this.page.locator('input:has-text("Sign In")').click();
+        await this.usernameInput.type(username)
+        await this.passwordInput.type(password)
+        await this.signinButton.click()
      
     }
 
+    async assertErrorMessage()
+    {
+        await expect(this.errorMessage).toContainText('Invalid username or password')
+    }
 }
