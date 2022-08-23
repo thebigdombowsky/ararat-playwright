@@ -6,6 +6,22 @@ import { devices } from '@playwright/test'
  * https://github.com/motdotla/dotenv
  */
 // require('dotenv').config();
+// JUnit reporter config for Xray
+const xrayOptions = {
+  // Whether to add <properties> with all annotations; default is false
+  embedAnnotationsAsProperties: true,
+
+  // By default, annotation is reported as <property name='' value=''>.
+  // These annotations are reported as <property name=''>value</property>.
+  textContentAnnotations: ['test_description'],
+
+  // This will create a "testrun_evidence" property that contains all attachments. Each attachment is added as an inner <item> element.
+  // Disables [[ATTACHMENT|path]] in the <system-out>.
+  embedAttachmentsAsProperty: 'testrun_evidence',
+
+  // Where to put the report.
+  outputFile: './xray-report.xml'
+}
 
 /**
  * See https://playwright.dev/docs/test-configuration.
@@ -30,7 +46,7 @@ const config: PlaywrightTestConfig = {
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: [ ['junit', { outputFile: './playwright-report/results.xml' }] ],
+  reporter: [ ['junit', xrayOptions ] ],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Maximum time each action such as `click()` can take. Defaults to 0 (no limit). */
