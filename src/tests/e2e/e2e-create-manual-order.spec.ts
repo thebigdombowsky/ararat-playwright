@@ -14,7 +14,7 @@ let landingPage: LandingPage
       landingPage = new LandingPage(page)
 
       await loginPage.visit()
-      await loginPage.login('shane', 'password')
+      await loginPage.login('shane', 'password', 'operator')
 
     })
 

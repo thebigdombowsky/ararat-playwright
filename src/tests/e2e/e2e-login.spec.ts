@@ -19,14 +19,14 @@ test.describe.parallel('Login + Logout', () => {
 
     test('Incorrect username/password', async ({ page }) => {
 
-        await loginPage.login('Invalid username', 'Invalid password')
+        await loginPage.login('Invalid username', 'Invalid password', 'other')
         await loginPage.assertErrorMessage()
 
     })
 
     test('Successful login/logout', async ({ page }) => {
 
-        await loginPage.login('shane', 'password')
+        await loginPage.login('shane', 'password', 'other')
  
         await landingPage.logout()
 
@@ -34,7 +34,7 @@ test.describe.parallel('Login + Logout', () => {
 
     test('Display username when no last name populated in Keycloak', async ({ page }) => {
  
-       await loginPage.login('FirstNameOnly', 'max')
+       await loginPage.login('FirstNameOnly', 'max', 'other')
 
        await page.locator('#profile-menu-button').click();
        const displayName = await page.locator('text=First undefined')
@@ -48,7 +48,7 @@ test.describe.parallel('Login + Logout', () => {
 
     test('Display username when no first name populated in Keycloak', async ({ page }) => {
 
-        await loginPage.login('LastNameOnly', 'max')
+        await loginPage.login('LastNameOnly', 'max', 'other')
 
         await page.locator('#profile-menu-button').click();
         const displayName = await page.locator('text=Last undefined')
@@ -61,7 +61,7 @@ test.describe.parallel('Login + Logout', () => {
     })
 
     test('Display username when no first and last name populated in Keycloak', async ({ page }) => {
-        await loginPage.login('NoNames', 'max')
+        await loginPage.login('NoNames', 'max', 'other')
 
         await page.locator('#profile-menu-button').click();
         const displayName = await page.locator('text=undefined undefined')
