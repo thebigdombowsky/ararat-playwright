@@ -9,7 +9,8 @@
     "test:webkit": "playwright test --config=playwright.config.ts --project=webkit",
     "test:e2e-chromium": "playwright test --config=e2e.config.ts --project=chromium",
     "test:e2e-firefox": "playwright test --config=e2e.config.ts --project=firefox",
-    "test:e2e-webkit": "playwright test --config=e2e.config.ts --project=webkit"
+    "test:e2e-webkit": "playwright test --config=e2e.config.ts --project=webkit",
+    "test": "npx playwright test --config=playwright.config.ts"
   },
   "author": "",
   "license": "ISC",
@@ -17,7 +18,8 @@
     "prettier": "^2.7.1"
   },
   "devDependencies": {
-    "@playwright/test": "^1.26.1",
+    "@playwright/test": "^1.27.1",
+    "@reportportal/agent-js-playwright": "^5.0.8",
     "allure-commandline": "^2.18.1",
     "allure-playwright": "^2.0.0-beta.19",
     "playwright-expect": "^0.1.2",

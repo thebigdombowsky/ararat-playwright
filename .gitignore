@@ -5,3 +5,9 @@ node_modules/
 /test-results/
 /playwright-report/
 /playwright/.cache/
+/test-results/
+/allure-results/
+/allure-report/
+/playwright-report/
+/playwright/.cache/
+results.xml

@@ -10,6 +10,15 @@ import { devices } from '@playwright/test'
 /**
  * See https://playwright.dev/docs/test-configuration.
  */
+
+ const RPconfig = {
+  token: '93e8b7d6-c81a-45c5-9349-a06858ace436',
+  endpoint: 'https://localhost:8080/api/v1',
+  project: 'ARARAT-BIN',
+  launch: 'Playwright test',
+  attributes: [],
+  description: 'Your launch description',
+};
 const config: PlaywrightTestConfig = {
   testDir: './src/tests',
   /* Maximum time one test can run for. */
@@ -30,7 +39,9 @@ const config: PlaywrightTestConfig = {
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: [ ['allure-playwright', { outputFile: './allure-results' }] ],
+  reporter: [ ['junit', {  outputFile: 'results.xml' }],
+              ['@reportportal/agent-js-playwright', RPconfig]
+            ],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Maximum time each action such as `click()` can take. Defaults to 0 (no limit). */
