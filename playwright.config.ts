@@ -13,7 +13,7 @@ import { devices } from '@playwright/test'
 
  const RPconfig = {
   token: '93e8b7d6-c81a-45c5-9349-a06858ace436',
-  endpoint: 'https://localhost:8080/api/v1',
+  endpoint: 'http://localhost:8080/api/v1',
   project: 'ARARAT-BIN',
   launch: 'Playwright test',
   attributes: [],
