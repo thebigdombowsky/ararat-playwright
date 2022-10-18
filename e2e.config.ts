@@ -56,7 +56,12 @@ const config: PlaywrightTestConfig = {
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: [ ['junit', {  outputFile: 'results.xml' }],
-              ['@reportportal/agent-js-playwright', RPconfig]
+              ['@reportportal/agent-js-playwright', RPconfig],
+              ['playwright-zephyr', { 
+                host: 'https://swisslog-healthcare.atlassian.net/',
+                authorizationToken: 'wylLx2fIGZet9v7Js2AU36D0',
+                projectKey: 'PMBOX'
+              }]
             ],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {

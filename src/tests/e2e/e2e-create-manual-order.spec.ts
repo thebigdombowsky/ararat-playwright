@@ -18,7 +18,7 @@ let landingPage: LandingPage
 
     })
 
-test('Create manual order', async ({ page }) => {
+test('[PMBOX-514] Create manual order', async ({ page }) => {
  
   await page.locator('#medportal_pick >> text=Pick').click()
   await page.locator('text=Create Manual Order').click()

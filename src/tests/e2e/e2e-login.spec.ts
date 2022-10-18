@@ -17,14 +17,14 @@ test.describe.parallel('Login + Logout', () => {
         
     })
 
-    test('Incorrect username/password', async ({ page }) => {
+    test('[PMBOX-523]Incorrect username/password', async ({ page }) => {
 
         await loginPage.login('Invalid username', 'Invalid password', 'other')
         await loginPage.assertErrorMessage()
 
     })
 
-    test('Successful login/logout', async ({ page }) => {
+    test('[PMBOX-524] Successful login/logout', async ({ page }) => {
 
         await loginPage.login('shane', 'password', 'other')
  
@@ -32,7 +32,7 @@ test.describe.parallel('Login + Logout', () => {
 
     })
 
-    test('Display username when no last name populated in Keycloak', async ({ page }) => {
+    test('[PMBOX-525] Display username when no last name populated in Keycloak', async ({ page }) => {
  
        await loginPage.login('FirstNameOnly', 'max', 'other')
 
@@ -46,7 +46,7 @@ test.describe.parallel('Login + Logout', () => {
         await expect(logoutText).toBeVisible()
     })
 
-    test('Display username when no first name populated in Keycloak', async ({ page }) => {
+    test('[PMBOX-526] Display username when no first name populated in Keycloak', async ({ page }) => {
 
         await loginPage.login('LastNameOnly', 'max', 'other')
 
@@ -60,7 +60,7 @@ test.describe.parallel('Login + Logout', () => {
         await expect(logoutText).toBeVisible()
     })
 
-    test('Display username when no first and last name populated in Keycloak', async ({ page }) => {
+    test('[PMBOX-527] Display username when no first and last name populated in Keycloak', async ({ page }) => {
         await loginPage.login('NoNames', 'max', 'other')
 
         await page.locator('#profile-menu-button').click();
