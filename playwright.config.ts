@@ -42,7 +42,7 @@ const config: PlaywrightTestConfig = {
   reporter: [ ['junit', {  outputFile: 'results.xml' }],
               ['@reportportal/agent-js-playwright', RPconfig],
               ['playwright-zephyr', { 
-                host: 'https://swisslog-healthcare.atlassian.net/',
+                host: 'https://swisslog-healthcare.atlassian.net',
                 authorizationToken: 'wylLx2fIGZet9v7Js2AU36D0',
                 projectKey: 'PMBOX'
               }]
