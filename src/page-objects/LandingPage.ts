@@ -1,4 +1,4 @@
-import { expect, Locator, Page } from  '@playwright/test'
+import { Locator, Page } from  '@playwright/test'
 
 export class LandingPage {
     
@@ -36,9 +36,9 @@ export class LandingPage {
     constructor(page:Page){
 
         this.page=page
-        this.profileMenuButton = page.locator('#profile-menu-button')
+        this.profileMenuButton = page.locator('#profile-menu-button-icon')
         this.logoutLink = page.locator('text="Logout"')
-        this.userProfileData = page.locator('user-profile-card__wrapper ng-star-inserted')
+        this.userProfileData = page.locator('#global > div > div > sl-cui-list > ul > sl-cui-user-profile-card > div > h3')
         this.cartMenu = page.locator('#medportal_cart')
         this.remoteOrdersMenu = page.locator('#remote_orders >> text=Remote Orders')
         this.createRemoteOrderMenuItem = page.locator('text=Create Remote Order')
@@ -53,6 +53,7 @@ export class LandingPage {
         this.pickStockoutsMenuItem = page.locator('text=Stockouts')
         this.pickConfirmedOrdersMenuItem = page.locator('text=Confirmed Orders')
         this.pickCanceledOrdersMenuItem = page.locator('text=Canceled Orders')
+        this.pickExpiredInventoryMenuItem = page.locator('text=Expired Inventory')
         this.pickCreateManualOrderMenuItem = page.locator('text=Create Manual Order')
         this.inventoryMenu = page.locator('#medportal_inventory >> text=Inventory')
         this.inventoryOverviewMenuItem = page.locator('text=Overview')

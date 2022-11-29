@@ -16,7 +16,7 @@ export class LoginPage {
         this.passwordInput = page.locator('#password')
         this.signinButton = page.locator('#kc-login')
         this.errorMessage = page.locator('text=Invalid username or password.')
-        this.landingPageType = page.locator('h2:has-text("Dashboard")')
+        this.landingPageType = page.locator('#application-container > main > div > app-dashboard-home > div > div:nth-child(1) > shv-headerbar > div.row.title-with-tooltip > h1')
     
     }
     

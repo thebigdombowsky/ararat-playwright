@@ -1,28 +1,5 @@
 import type { PlaywrightTestConfig } from '@playwright/test'
 import { devices } from '@playwright/test'
-
-/**
- * Read environment variables from file.
- * https://github.com/motdotla/dotenv
- */
-// require('dotenv').config();
-// JUnit reporter config for Xray
-const xrayOptions = {
-  // Whether to add <properties> with all annotations; default is false
-  embedAnnotationsAsProperties: true,
-
-  // By default, annotation is reported as <property name='' value=''>.
-  // These annotations are reported as <property name=''>value</property>.
-  textContentAnnotations: ['test_description'],
-
-  // This will create a "testrun_evidence" property that contains all attachments. Each attachment is added as an inner <item> element.
-  // Disables [[ATTACHMENT|path]] in the <system-out>.
-  embedAttachmentsAsProperty: 'testrun_evidence',
-
-  // Where to put the report.
-  outputFile: './xray-report.xml'
-}
-
 const RPconfig = {
   token: '93e8b7d6-c81a-45c5-9349-a06858ace436',
   endpoint: 'https://localhost:8080/api/v1',
@@ -57,11 +34,6 @@ const config: PlaywrightTestConfig = {
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: [ ['junit', {  outputFile: 'results.xml' }],
               ['@reportportal/agent-js-playwright', RPconfig],
-              ['playwright-zephyr', { 
-                host: 'https://swisslog-healthcare.atlassian.net',
-                authorizationToken: 'wylLx2fIGZet9v7Js2AU36D0',
-                projectKey: 'PMBOX'
-              }]
             ],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {

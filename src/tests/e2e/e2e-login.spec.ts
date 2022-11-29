@@ -17,14 +17,14 @@ test.describe.parallel('Login + Logout', () => {
         
     })
 
-    test('[PMBOX-523]Incorrect username/password', async ({ page }) => {
+    test('[PMBOX-523]Incorrect username/password', async () => {
 
         await loginPage.login('Invalid username', 'Invalid password', 'other')
         await loginPage.assertErrorMessage()
 
     })
 
-    test('[PMBOX-524] Successful login/logout', async ({ page }) => {
+    test('[PMBOX-524] Successful login/logout', async () => {
 
         await loginPage.login('shane', 'password', 'other')
  
@@ -32,44 +32,35 @@ test.describe.parallel('Login + Logout', () => {
 
     })
 
-    test('[PMBOX-525] Display username when no last name populated in Keycloak', async ({ page }) => {
+    test('[PMBOX-525] Display username when no last name populated in Keycloak', async () => {
  
-       await loginPage.login('FirstNameOnly', 'max', 'other')
+        await loginPage.login('FirstNameOnly', 'max', 'other')
 
-       await page.locator('#profile-menu-button').click();
-       const displayName = await page.locator('text=First undefined')
-       await expect(displayName).toContainText('FirstNameOnly')
+        await landingPage.profileMenuButton.click()
+        await expect(landingPage.userProfileData).toContainText('firstnameonly')
 
-        await page.locator('#profile-menu-button').click();
-        await page.locator('text=Logout').click();
-        const logoutText = await page.locator('input:has-text("Sign In")')
-        await expect(logoutText).toBeVisible()
+        await landingPage.logoutLink.click()
+        await expect(loginPage.signinButton).toBeVisible()
     })
 
-    test('[PMBOX-526] Display username when no first name populated in Keycloak', async ({ page }) => {
+    test('[PMBOX-526] Display username when no first name populated in Keycloak', async () => {
 
         await loginPage.login('LastNameOnly', 'max', 'other')
 
-        await page.locator('#profile-menu-button').click();
-        const displayName = await page.locator('text=Last undefined')
-        await expect(displayName).toContainText('LastNameOnly')
+        await landingPage.profileMenuButton.click()
+        await expect(landingPage.userProfileData).toContainText('lastnameonly')
 
-        await page.locator('#profile-menu-button').click();
-        await page.locator('text=Logout').click();
-        const logoutText = await page.locator('input:has-text("Sign In")')
-        await expect(logoutText).toBeVisible()
+        await landingPage.logoutLink.click()
+        await expect(loginPage.signinButton).toBeVisible()
     })
 
-    test('[PMBOX-527] Display username when no first and last name populated in Keycloak', async ({ page }) => {
+    test('[PMBOX-527] Display username when no first and last name populated in Keycloak', async () => {
         await loginPage.login('NoNames', 'max', 'other')
 
-        await page.locator('#profile-menu-button').click();
-        const displayName = await page.locator('text=undefined undefined')
-        await expect(displayName).toContainText('NoNames')
+        await landingPage.profileMenuButton.click()
+        await expect(landingPage.userProfileData).toContainText('nonames')
 
-        await page.locator('#profile-menu-button').click();
-        await page.locator('text=Logout').click();
-        const logoutText = await page.locator('input:has-text("Sign In")')
-        await expect(logoutText).toBeVisible()
+        await landingPage.logoutLink.click()
+        await expect(loginPage.signinButton).toBeVisible()
     })
 })

@@ -20,8 +20,7 @@ import { devices } from '@playwright/test'
   description: 'Playwright automated regression tests',
 };
 const config: PlaywrightTestConfig = {
-  testDir: './src/tests',
-  testMatch: /.*\.e2e\.js/,
+  testDir: './src/tests/e2e',
   /* Maximum time one test can run for. */
   timeout: 30 * 1000,
   expect: {
@@ -42,11 +41,7 @@ const config: PlaywrightTestConfig = {
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: [ ['junit', {  outputFile: 'results.xml' }],
               ['@reportportal/agent-js-playwright', RPconfig],
-              ['playwright-zephyr', { 
-                host: 'https://swisslog-healthcare.atlassian.net',
-                authorizationToken: 'wylLx2fIGZet9v7Js2AU36D0',
-                projectKey: 'PMBOX'
-              }]
+              ['list'],
             ],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
@@ -57,7 +52,7 @@ const config: PlaywrightTestConfig = {
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
-
+    ignoreHTTPSErrors: true,
     video: 'retain-on-failure',
     screenshot: 'only-on-failure'
   },
