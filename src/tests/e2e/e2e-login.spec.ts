@@ -17,16 +17,16 @@ test.describe.parallel('Login + Logout', () => {
         
     })
 
-    test('[PMBOX-523]Incorrect username/password', async () => {
+    test('[PMBOX-523] Incorrect username/password', async () => {
 
-        await loginPage.login('Invalid username', 'Invalid password', 'other')
+        await loginPage.login('Invalid username', 'Invalid password')
         await loginPage.assertErrorMessage()
 
     })
 
     test('[PMBOX-524] Successful login/logout', async () => {
 
-        await loginPage.login('shane', 'password', 'other')
+        await loginPage.login('shane', 'password')
  
         await landingPage.logout()
 
@@ -34,7 +34,7 @@ test.describe.parallel('Login + Logout', () => {
 
     test('[PMBOX-525] Display username when no last name populated in Keycloak', async () => {
  
-        await loginPage.login('FirstNameOnly', 'max', 'other')
+        await loginPage.login('FirstNameOnly', 'max')
 
         await landingPage.profileMenuButton.click()
         await expect(landingPage.userProfileData).toContainText('firstnameonly')
@@ -45,7 +45,7 @@ test.describe.parallel('Login + Logout', () => {
 
     test('[PMBOX-526] Display username when no first name populated in Keycloak', async () => {
 
-        await loginPage.login('LastNameOnly', 'max', 'other')
+        await loginPage.login('LastNameOnly', 'max')
 
         await landingPage.profileMenuButton.click()
         await expect(landingPage.userProfileData).toContainText('lastnameonly')
@@ -55,7 +55,7 @@ test.describe.parallel('Login + Logout', () => {
     })
 
     test('[PMBOX-527] Display username when no first and last name populated in Keycloak', async () => {
-        await loginPage.login('NoNames', 'max', 'other')
+        await loginPage.login('NoNames', 'max')
 
         await landingPage.profileMenuButton.click()
         await expect(landingPage.userProfileData).toContainText('nonames')

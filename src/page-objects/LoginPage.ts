@@ -7,7 +7,6 @@ export class LoginPage {
     readonly passwordInput: Locator
     readonly signinButton: Locator
     readonly errorMessage: Locator
-    readonly landingPageType: Locator
 
     constructor(page:Page){
 
@@ -16,7 +15,7 @@ export class LoginPage {
         this.passwordInput = page.locator('#password')
         this.signinButton = page.locator('#kc-login')
         this.errorMessage = page.locator('text=Invalid username or password.')
-        this.landingPageType = page.locator('#application-container > main > div > app-dashboard-home > div > div:nth-child(1) > shv-headerbar > div.row.title-with-tooltip > h1')
+
     
     }
     
@@ -24,25 +23,14 @@ export class LoginPage {
         await this.page.goto('http://pmararat-qa-shva.thedevcloud.net/')
     }
 
-    async login(username: string, password: string, stationType: string)
+    async login(username: string, password: string)
     {
 
         await this.usernameInput.type(username)
         await this.passwordInput.type(password)
         await this.signinButton.click()
 
-        switch (stationType) {
-            case 'operator':
-                await expect(this.landingPageType).toContainText('Dashboard')
-              break;
-            case "workstation":
-                await expect(this.page).toHaveURL('http://pmararat-qa-shva.thedevcloud.net')
-              break;
-            default:
-              console.log('default station type')
-              break;
-          }
-     }
+    }
 
     async assertErrorMessage()
     {

@@ -1,12 +1,14 @@
-import { test, expect } from '@playwright/test'
+import { test } from '@playwright/test'
 import { LoginPage } from '../../page-objects/LoginPage'
 import { LandingPage } from '../../page-objects/LandingPage'
+import { CreateManualOrderPage} from "../../page-objects/CreateManualOrderPage";
 
-//const user = 'shane'
-//const password = 'password'
+let user = 'shane'
+let password = 'password'
 
 let loginPage: LoginPage
 let landingPage: LandingPage
+let createManualOrderPage: CreateManualOrderPage
 
     test.beforeEach(async ({ page }) => {
 
@@ -14,31 +16,18 @@ let landingPage: LandingPage
       landingPage = new LandingPage(page)
 
       await loginPage.visit()
-      await loginPage.login('shane', 'password', 'operator')
+      await loginPage.login(user, password)
 
     })
 
 test('[PMBOX-514] Create manual order', async ({ page }) => {
- 
-  await page.locator('#medportal_pick >> text=Pick').click()
-  await page.locator('text=Create Manual Order').click()
-  await expect(page).toHaveURL('http://pmararat-qa-shva.thedevcloud.net/pick/create-manual-order')
 
-  await page.locator('[aria-label="Cabinet Refill"]').click()
+  await createManualOrderPage.manualOrderCabinetRefill.click()
+  await createManualOrderPage.manualOrderLocationDropdown.click()
+  await createManualOrderPage.manualOrderLocationSelection.click()
+  await createManualOrderPage.manualOrderNextButton.click()
+  await createManualOrderPage.manualOrderSelectMedication.locator('#undefined-plus-icon').click()
 
-  await page.locator('text=Type any part of location\'s name').click()
-
-  await page.locator('text=Nurse Station 1').click()
-  
-  await page.locator('text=.cls-1{fill:#26193c;} Next').nth(1).click()
-
-  await page.locator('text=QA Drug 9000 10 TABLET 1.25SWLG9000 Not a Hazard2727 Add >> input[name="quantityToOrder-numberPickerInput"]').click();
-  await page.locator('text=QA Drug 9000 10 TABLET 1.25SWLG9000 Not a Hazard2727 Add >> input[name="quantityToOrder-numberPickerInput"]').fill('3');
-  await page.locator('text=QA Drug 9000 10 TABLET 1.25SWLG9000 Not a Hazard2727 Add >> #addProduct').click();
-
-  await page.locator('[id="name\\ \\+\\ \\\'close-button"]').click()
-
-  await page.locator('text=.cls-1{fill:#26193c;} Next').nth(1).click()
 
   await landingPage.logout()
   
