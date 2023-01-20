@@ -20,7 +20,7 @@ let createManualOrderPage: CreateManualOrderPage
 
     })
 
-test('[PMBOX-514] Create manual order', async () => {
+test('PMBOX-514 Create manual order', async () => {
 
   await landingPage.pickMenu.click()
   await landingPage.pickCreateManualOrderMenuItem.click()

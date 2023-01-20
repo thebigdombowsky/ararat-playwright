@@ -8,6 +8,7 @@ export class LoginPage {
     readonly signinButton: Locator
     readonly errorMessage: Locator
 
+
     constructor(page:Page){
 
         this.page=page
@@ -18,9 +19,9 @@ export class LoginPage {
 
     
     }
-    
+
     async visit() {
-        await this.page.goto('http://pmararat-qa-shva.thedevcloud.net/')
+        await this.page.goto('/')
     }
 
     async login(username: string, password: string)
