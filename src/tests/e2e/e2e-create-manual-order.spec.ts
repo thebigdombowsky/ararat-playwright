@@ -1,29 +1,13 @@
-import { test } from '@playwright/test'
-import { LoginPage } from '../../page-objects/LoginPage'
-import { LandingPage } from '../../page-objects/LandingPage'
-import { CreateManualOrderPage} from "../../page-objects/CreateManualOrderPage"
+import test from './../fixtures/basePage'
 
-let loginPage: LoginPage
-let landingPage: LandingPage
-let createManualOrderPage: CreateManualOrderPage
+test('[514] Create manual order', async ({loginPage, landingPage, createManualOrderPage}) => {
 
-    test.beforeEach(async ({ page }) => {
-
-      loginPage = new LoginPage(page)
-      landingPage = new LandingPage(page)
-      createManualOrderPage = new CreateManualOrderPage(page)
-      let user = 'shane'
-      let password = 'password'
-
-      await loginPage.visit()
-      await loginPage.login(user, password)
-
-    })
-
-test('PMBOX-514 Create manual order', async () => {
-
+  await loginPage.login('shane', 'password')
+  
+  
   await landingPage.pickMenu.click()
   await landingPage.pickCreateManualOrderMenuItem.click()
+
   await createManualOrderPage.manualOrderLocationDropdown.click()
   await createManualOrderPage.manualOrderLocationSelection.click()
   await createManualOrderPage.manualOrderNextButton.click()

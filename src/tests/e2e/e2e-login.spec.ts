@@ -1,30 +1,17 @@
-import { test, expect } from '@playwright/test'
-//import { loadAraratHomePage } from '../../../helpers'
-import { LoginPage } from '../../page-objects/LoginPage'
-import { LandingPage } from '../../page-objects/LandingPage'
+import test from './../fixtures/basePage'
+import { expect } from '@playwright/test'
 
 test.describe.parallel('Login + Logout', () => {
 
-    let loginPage: LoginPage
-    let landingPage: LandingPage
 
-    test.beforeEach(async ({ page }) => {
-
-        loginPage = new LoginPage(page)
-        landingPage = new LandingPage(page)
-
-        await loginPage.visit()
-        
-    })
-
-    test('PMBOX-523 Incorrect username/password', async () => {
+    test('PMBOX-523 Incorrect username/password', async ({loginPage}) => {
 
         await loginPage.login('Invalid username', 'Invalid password')
         await loginPage.assertErrorMessage()
 
     })
 
-    test('PMBOX-524 Successful login/logout', async () => {
+    test('PMBOX-524 Successful login/logout', async ({loginPage, landingPage}) => {
 
         await loginPage.login('shane', 'password')
  
@@ -32,7 +19,7 @@ test.describe.parallel('Login + Logout', () => {
 
     })
 
-    test('PMBOX-525 Display username when no last name populated in Keycloak', async () => {
+    test('PMBOX-525 Display username when no last name populated in Keycloak', async ({loginPage, landingPage}) => {
  
         await loginPage.login('FirstNameOnly', 'max')
 
@@ -43,7 +30,7 @@ test.describe.parallel('Login + Logout', () => {
         await expect(loginPage.signinButton).toBeVisible()
     })
 
-    test('PMBOX-526 Display username when no first name populated in Keycloak', async () => {
+    test('PMBOX-526 Display username when no first name populated in Keycloak', async ({loginPage, landingPage}) => {
 
         await loginPage.login('LastNameOnly', 'max')
 
@@ -54,7 +41,7 @@ test.describe.parallel('Login + Logout', () => {
         await expect(loginPage.signinButton).toBeVisible()
     })
 
-    test('PMBOX-527 Display username when no first and last name populated in Keycloak', async () => {
+    test('PMBOX-527 Display username when no first and last name populated in Keycloak', async ({loginPage, landingPage}) => {
         await loginPage.login('NoNames', 'max')
 
         await landingPage.profileMenuButton.click()
