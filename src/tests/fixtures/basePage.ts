@@ -21,10 +21,9 @@ type testFixtures = {
         await use(new LoginPage(page))
     },
     page: async ({ baseURL, page }, use) => {
-        baseURL && (await page.goto(baseURL));
-        await use(page);
+        baseURL && (await page.goto(baseURL))
+        await use(page)
       },
 })
 
 export default test
-export { expect } from '@playwright/test'

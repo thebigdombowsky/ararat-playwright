@@ -31,6 +31,7 @@ export class LandingPage {
     readonly inventoryCreateTransferOrderMenuItem: Locator
     readonly inventoryLoadProductsMenuItem: Locator
     readonly reportsMenu: Locator
+    readonly dashboardLabel: Locator
 
 
     constructor(page:Page){
@@ -64,6 +65,7 @@ export class LandingPage {
         this.inventoryCreateTransferOrderMenuItem = page.locator('text=Create Transfer Order')
         this.inventoryLoadProductsMenuItem = page.locator('text=Load Products')
         this.reportsMenu = page.locator('text=Reports')
+        this.dashboardLabel = page.getByRole('heading', { name: 'Dashboard' })
     
     }
     
@@ -72,6 +74,13 @@ export class LandingPage {
 
         await this.profileMenuButton.click()
         await this.logoutLink.click()
+
+    }
+
+    async verifyDashboard()
+    {
+
+        await expect(this.dashboardLabel).toHaveText('Dashboard')
 
     }
 

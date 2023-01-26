@@ -1,5 +1,9 @@
 import type { PlaywrightTestConfig } from '@playwright/test'
-import { devices } from '@playwright/test'
+import { devices, expect, request } from '@playwright/test'
+import playwrightApiMatchers from 'odottaa'
+import 'dotenv'
+
+expect.extend(playwrightApiMatchers)
 
 /**
  * Read environment variables from file.
@@ -10,6 +14,7 @@ import { devices } from '@playwright/test'
 /**
  * See https://playwright.dev/docs/test-configuration.
  */
+
 
  const RPconfig = {
   token: '93e8b7d6-c81a-45c5-9349-a06858ace436',

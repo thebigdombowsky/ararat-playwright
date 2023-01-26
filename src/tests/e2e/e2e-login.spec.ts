@@ -14,6 +14,7 @@ test.describe.parallel('Login + Logout', () => {
     test('PMBOX-524 Successful login/logout', async ({loginPage, landingPage}) => {
 
         await loginPage.login('shane', 'password')
+        await landingPage.verifyDashboard()
  
         await landingPage.logout()
 
