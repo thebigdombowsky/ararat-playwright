@@ -1,8 +1,7 @@
 import type { PlaywrightTestConfig } from '@playwright/test'
 import { devices, expect, request } from '@playwright/test'
+import dotenv from 'dotenv'
 import playwrightApiMatchers from 'odottaa'
-import 'dotenv'
-
 expect.extend(playwrightApiMatchers)
 
 /**
