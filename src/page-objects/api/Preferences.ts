@@ -56,8 +56,6 @@ export class Preferences {
       const statusResponse = response.status()
       const callResponse = response.body()
 
-      console.log(callResponse)
-
       expect(statusResponse,'Expected status').toBe(status)
 
   })
