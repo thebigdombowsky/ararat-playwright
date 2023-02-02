@@ -1,6 +1,5 @@
 import type { PlaywrightTestConfig } from '@playwright/test'
-import { devices, expect, request } from '@playwright/test'
-import dotenv from 'dotenv'
+import { devices, expect } from '@playwright/test'
 import playwrightApiMatchers from 'odottaa'
 expect.extend(playwrightApiMatchers)
 
@@ -8,7 +7,8 @@ expect.extend(playwrightApiMatchers)
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
  */
-// require('dotenv').config();
+require('dotenv').config()
+console.log(process.env.PREFERENCE_PORT)
 
 /**
  * See https://playwright.dev/docs/test-configuration.
@@ -114,7 +114,7 @@ const config: PlaywrightTestConfig = {
 //  ],
 
   /* Folder for test artifacts such as screenshots, videos, traces, etc. */
-  // outputDir: 'test-results/',
+ outputDir: 'test-results/',
 
   /* Run your local dev server before starting the tests */
   // webServer: {
@@ -122,4 +122,4 @@ const config: PlaywrightTestConfig = {
   //   port: 3000,
   // },
 }
-export default config;
+export default config
