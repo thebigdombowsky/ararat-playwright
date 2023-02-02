@@ -8,7 +8,7 @@ expect.extend(playwrightApiMatchers)
  * https://github.com/motdotla/dotenv
  */
 require('dotenv').config()
-console.log(process.env.PREFERENCE_PORT)
+//console.log(process.env)
 
 /**
  * See https://playwright.dev/docs/test-configuration.
