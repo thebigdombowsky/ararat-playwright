@@ -1,12 +1,7 @@
 node_modules/
-/test-results/
 /playwright-report/
 /playwright/.cache/
-/allure-results/
-/allure-report/
 results.xml
 /test-results/
-/playwright-report/
-/playwright/.cache/
 tsconfig.json
 .prettier.rc
