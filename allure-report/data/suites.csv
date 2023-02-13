@@ -1,6 +1,0 @@
-"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
-"broken","Thu Sep 29 14:16:37 MDT 2022","Thu Sep 29 14:17:34 MDT 2022","56738","chromium","","Login + Logout","","","Display username when no last name populated in Keycloak",""
-"broken","Thu Sep 29 14:17:11 MDT 2022","Thu Sep 29 14:17:43 MDT 2022","31749","chromium","","Login + Logout","","","Display username when no first and last name populated in Keycloak",""
-"passed","Thu Sep 29 14:16:36 MDT 2022","Thu Sep 29 14:17:11 MDT 2022","35297","chromium","","Login + Logout","","","Incorrect username/password",""
-"broken","Thu Sep 29 14:16:36 MDT 2022","Thu Sep 29 14:17:17 MDT 2022","40782","chromium","","Login + Logout","","","Successful login/logout",""
-"broken","Thu Sep 29 14:16:38 MDT 2022","Thu Sep 29 14:17:34 MDT 2022","55984","chromium","","Login + Logout","","","Display username when no first name populated in Keycloak",""
