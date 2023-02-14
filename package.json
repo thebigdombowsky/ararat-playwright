@@ -10,7 +10,8 @@
     "test:e2e-chromium": "npx playwright test --config=e2e.config.ts --project=chromium",
     "test:e2e-firefox": "playwright test --config=e2e.config.ts --project=firefox",
     "test:e2e-webkit": "playwright test --config=e2e.config.ts --project=webkit",
-    "test": "npx playwright test --config=playwright.config.ts"
+    "test": "npx playwright test --config=playwright.config.ts",
+    "test-ct": "playwright test -c playwright-ct.config.ts"
   },
   "author": "",
   "license": "ISC",
@@ -22,6 +23,7 @@
     "prettier": "^2.7.1"
   },
   "devDependencies": {
+    "@playwright/experimental-ct-react": "^1.30.0",
     "@playwright/test": "^1.30.0",
     "@reportportal/agent-js-playwright": "^5.0.8",
     "@types/jwt-simple": "^0.5.33",

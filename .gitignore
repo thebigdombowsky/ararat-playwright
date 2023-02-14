@@ -5,3 +5,6 @@ results.xml
 /test-results/
 tsconfig.json
 .prettier.rc
+/test-results/
+/playwright-report/
+/playwright/.cache/
