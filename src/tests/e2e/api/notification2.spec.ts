@@ -3,7 +3,7 @@ import { Preferences } from '../../../page-objects/api/Preferences'
 
 
 
-test("Update notification2 preference via api", async ({ request }) => {
+test("Update notification2 preference via api @regression @api @preference @notification2", async ({ request }) => {
 
     const preference = new Preferences(request)
 
