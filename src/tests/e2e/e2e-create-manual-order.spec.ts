@@ -1,6 +1,6 @@
 import test from './../fixtures/basePage'
 
-test('[514] Create manual order', async ({loginPage, landingPage, createManualOrderPage}) => {
+test('[514] Create manual order @regression @manualorders', async ({loginPage, landingPage, createManualOrderPage}) => {
 
   await loginPage.login('shane', 'password')
   
