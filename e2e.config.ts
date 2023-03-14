@@ -1,13 +1,13 @@
 import type { PlaywrightTestConfig } from '@playwright/test'
 import { devices } from '@playwright/test'
 const RPconfig = {
-  token: '93e8b7d6-c81a-45c5-9349-a06858ace436',
-  endpoint: 'https://localhost:8080/api/v1',
-  project: 'ARARAT-BIN',
-  launch: 'Playwright test',
+  token: '1e6e7a0e-97a8-4e1f-b3bb-484c8c7426eb',
+  endpoint: 'http://172.24.220.66:8080',
+  project: 'shane_personal',
+  launch: 'shane',
   attributes: [],
-  description: 'Your launch description',
-}
+  description: 'shane',
+};
 
 /**
  * See https://playwright.dev/docs/test-configuration.

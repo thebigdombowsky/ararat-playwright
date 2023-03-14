@@ -16,15 +16,15 @@ require('dotenv').config()
 
 
  const RPconfig = {
-  token: '93e8b7d6-c81a-45c5-9349-a06858ace436',
-  endpoint: 'http://localhost:8080/api/v1',
-  project: 'ARARAT-BIN',
-  launch: 'Regression',
+  token: '1e6e7a0e-97a8-4e1f-b3bb-484c8c7426eb',
+  endpoint: 'http://172.24.220.66:8080/api/v2',
+  project: 'ararat-bin',
+  launch: 'PMBOX Regression Tests',
   attributes: [],
-  description: 'Playwright automated regression tests',
+  description: 'PMBOX Regression Tests',
 };
 const config: PlaywrightTestConfig = {
-  testDir: './src/tests/e2e',
+  testDir: './src/tests',
   /* Maximum time one test can run for. */
   timeout: 30 * 1000,
   expect: {

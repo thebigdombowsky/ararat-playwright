@@ -25,7 +25,7 @@ export class Preferences {
             "secondaryDevices": []
           },
           {
-            "ipAddress": "10.10.153.159",
+            "ipAddress": "10.10.153.167",
             "primaryDevices": [
               "araratsample2-1/boxpicker_1-op_station_1"
             ],
