@@ -15,6 +15,10 @@ export class LoadProductsPage {
     readonly quantityBeingLoaded: Locator
     readonly saveButton: Locator
     readonly startLoadingButton: Locator
+    readonly loadProductsTooltip: Locator
+    readonly resetFiltersTooltip: Locator
+    readonly loadProductsTooltipText: Locator
+    readonly resetFiltersTooltipText: Locator
 
     constructor(page:Page){
 
@@ -31,6 +35,10 @@ export class LoadProductsPage {
         this.quantityBeingLoaded = page.getByLabel('Quantity Being Loaded')
         this.saveButton = page.getByRole('button', { name: '.b{fill:#26193c;} Save' })
         this.startLoadingButton = page.getByRole('button', { name: 'Start Loading' })
+        this.loadProductsTooltip = page.locator('#load-products-tooltip-tooltip-trigger-icon')
+        this.resetFiltersTooltip = page.locator('#helpButton')
+        this.loadProductsTooltipText = page.locator('#cdk-overlay-65 > shv-popover')
+        this.resetFiltersTooltipText = page.locator('#helpButton')
     
     }
 

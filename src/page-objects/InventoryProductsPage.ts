@@ -28,6 +28,7 @@ export class InventoryProductsPage {
     readonly modalDismissButton: Locator
     readonly barcodeInput: Locator
     readonly productIDInput: Locator
+    filterByDropdown: any
 
 
     constructor(page:Page){
@@ -63,65 +64,20 @@ export class InventoryProductsPage {
     
     async productSearch(searchType: string, searchValue: any) {
         await this.filterSelect.click()
-        switch (searchType) {  
-            case 'Barcode':
-                await this.filterByBarcode.click()
-                await this.barcodeInput.type(searchValue)
-                break;
-            case 'Product ID':
-                await this.filterByProductId.click()
-                await this.productIDInput.type(searchValue)
-                break;
-            case 'Name':
-                await this.filterByName.click()
-                await this.filterByNameInput.type(searchValue)
-                break;
-            case 'Strength':
-                await this.filterByName.click()
-                await this.filterbyStrengthInput.type(searchValue)
-                break;
-            case 'Dosage Form':
-                await this.filterByName.click()
-                await this.filterByDosageForm.type(searchValue)
-                break;
-            case 'Facility Status':
-                await this.filterByName.click()
-                await this.filterByFacilityStatusDropdown.click()
-                switch (searchValue) {
-                    case 'Active':
-                        await this.filterByFacilityStatusActive.click()
-                        break;
-                    case 'Inactive':
-                        await this.filterByFacilityStatusInactive.click()
-                        break;
-                    case 'Obsolete':
-                        await this.filterByFacilityStatusObsolete.click()
-                        break;
-                    default:
-                        break;
-                }
-            case 'Hazardous Types':
-                await this.filterByName.click()
-                await this.filterByHazardousTypesDropdown.click()
-                switch (searchValue) {
-                    case 'High Risk Hazardous':
-                        await this.filterByHazardousTypesHighRisk.click()
-                        break;
-                    case 'Low Risk Hazardous':
-                        await this.filterByHazardousTypesLowRisk.click()
-                        break;
-                    case 'Reproductive Risk Hazardous':
-                        await this.filterByHazardousTypesReproductiveRisk.click()
-                        break;
-                    case 'None':
-                        await this.filterByHazardousTypesNone.click()
-                        break;
-                    default:
-                        break;
-                }
-                default:
-                    break;
-            }
+        await this.filterByName.click()
+        await this.filterByDropdown.click()
+        const map = new Map();
+        map.set('Barcode', this.barcodeInput);
+        map.set('Product ID', this.productIDInput);
+        map.set('Name', this.filterByNameInput);
+        map.set('Strength', this.filterbyStrengthInput);
+        map.set('Dosage Form', this.filterByDosageForm);
+        map.set('Facility Status', this.filterByFacilityStatusDropdown);
+        map.set('Hazardous Types', this.filterByHazardousTypesDropdown);
+        await map.get(searchType).click();
+        await map.get(searchValue).type(searchValue);                
+
+
         await this.filterButton.click()
     }
 }

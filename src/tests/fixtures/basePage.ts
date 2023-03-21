@@ -2,11 +2,19 @@ import { test as base } from '@playwright/test'
 import { CreateManualOrderPage } from '../../page-objects/CreateManualOrderPage'
 import { LandingPage } from '../../page-objects/LandingPage'
 import { LoginPage } from '../../page-objects/LoginPage'
+import { LoadProductsPage } from '../../page-objects/LoadProductsPage'
+import { InventoryProductsPage } from '../../page-objects/InventoryProductsPage'
+import { ConfirmProduct } from '../../page-objects/ConfirmProduct'
+
+
 
 type testFixtures = {
     loginPage: LoginPage
     landingPage: LandingPage
     createManualOrderPage: CreateManualOrderPage
+    loadProductsPage: LoadProductsPage
+    inventoryProductsPage: InventoryProductsPage 
+    confirmProduct: ConfirmProduct
 
 } 
 
@@ -19,6 +27,15 @@ type testFixtures = {
     },
     loginPage: async ({page}, use) => {
         await use(new LoginPage(page))
+    },
+    loadProductsPage: async ({page}, use) => {
+        await use(new LoadProductsPage(page))
+    },
+    inventoryProductsPage: async ({page}, use) => {
+        await use(new InventoryProductsPage(page))
+    },
+    confirmProduct: async ({page}, use) => {
+        await use(new ConfirmProduct(page))
     },
     page: async ({ baseURL, page }, use) => {
         baseURL && (await page.goto(baseURL))

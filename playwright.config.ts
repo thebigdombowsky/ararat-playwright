@@ -18,7 +18,7 @@ require('dotenv').config()
  const RPconfig = {
   token: '1e6e7a0e-97a8-4e1f-b3bb-484c8c7426eb',
   endpoint: 'http://172.24.220.66:8080/api/v2',
-  project: 'ararat-bin',
+  project: 'ashane_personal',
   launch: 'PMBOX Regression Tests',
   attributes: [],
   description: 'PMBOX Regression Tests',
