@@ -19,6 +19,7 @@ export class LoadProductsPage {
     readonly resetFiltersTooltip: Locator
     readonly loadProductsTooltipText: Locator
     readonly resetFiltersTooltipText: Locator
+    readonly magnifyingGlassSearchButton: Locator
 
     constructor(page:Page){
 
@@ -39,6 +40,7 @@ export class LoadProductsPage {
         this.resetFiltersTooltip = page.locator('#helpButton')
         this.loadProductsTooltipText = page.locator('#cdk-overlay-65 > shv-popover')
         this.resetFiltersTooltipText = page.locator('#helpButton')
+        this.magnifyingGlassSearchButton = page.locator("#scanFilter-action-dialog-button-icon")
     
     }
 
