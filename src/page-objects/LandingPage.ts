@@ -32,6 +32,7 @@ export class LandingPage {
     readonly inventoryLoadProductsMenuItem: Locator
     readonly reportsMenu: Locator
     readonly dashboardLabel: Locator
+    pickLoadProductsMenuItem: any
 
 
     constructor(page:Page){
