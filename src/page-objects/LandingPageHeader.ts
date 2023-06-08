@@ -1,6 +1,6 @@
 import { expect, Locator, Page } from  '@playwright/test'
 
-export class LandingPage {
+export class LandingPageHeader {
     
     readonly page: Page
     readonly profileMenuButton: Locator
