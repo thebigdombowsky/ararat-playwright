@@ -1,6 +1,7 @@
 import { test as base } from '@playwright/test'
 import { CreateManualOrderPage } from '../../page-objects/CreateManualOrderPage'
-import { LandingPage } from '../../page-objects/LandingPage'
+import { LandingPageHeader } from '../../page-objects/LandingPageHeader'
+import { LandingPageDashboard } from '../../page-objects/LandingPageDashboard'
 import { LoginPage } from '../../page-objects/LoginPage'
 import { LoadProductsPage } from '../../page-objects/LoadProductsPage'
 import { InventoryProductsPage } from '../../page-objects/InventoryProductsPage'
@@ -10,7 +11,8 @@ import { ConfirmProduct } from '../../page-objects/ConfirmProduct'
 
 type testFixtures = {
     loginPage: LoginPage
-    landingPage: LandingPage
+    landingPageHeader: LandingPageHeader
+    landingPageDashboard: LandingPageDashboard
     createManualOrderPage: CreateManualOrderPage
     loadProductsPage: LoadProductsPage
     inventoryProductsPage: InventoryProductsPage 
@@ -22,8 +24,11 @@ type testFixtures = {
     createManualOrderPage: async ({page}, use) => {
         await use(new CreateManualOrderPage(page))
     },
-    landingPage: async ({page}, use) => {
-        await use(new LandingPage(page))
+    landingPageHeader: async ({page}, use) => {
+        await use(new LandingPageHeader(page))
+    },
+    landingPageDashboard: async ({page}, use) => {
+        await use(new LandingPageDashboard(page))
     },
     loginPage: async ({page}, use) => {
         await use(new LoginPage(page))
