@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"name": "ararat.bin",
+			"path": "../ararat-database/ararat.bin"
+		}
+	],
+	"settings": {
+		"dataworkspace.excludedProjects": [
+			"ararat.bin/ararat.bin.sqlproj"
+		]
+	}
+}
